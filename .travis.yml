@@ -1,3 +1,14 @@
 language: python
 sudo: required
 script: sudo pip install pillow matplotlib numpy pyinstaller && pyinstaller -F --hidden-import packaging.specifiers --hidden-import packaging.requirements --hidden-import numpy.random.common --hidden-import numpy.random.bounded_integers --hidden-import numpy.random.entropy tiaoyitiao.py && git push origin master
+after_script:
+  - cd ./dist
+  - git init
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "Update tools"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+branches:
+  only:
+     master
