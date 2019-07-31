@@ -1,7 +1,6 @@
 language: python
 sudo: required
-script: sudo apt update && sudo apt upgrade && sudo apt install python3.6-tk
-script: sudo pip install pillow matplotlib numpy pyinstaller && pyinstaller -F --hidden-import tkinter --hidden-import matplotlib.backends.backend_tkagg --hidden-import packaging.specifiers --hidden-import packaging.requirements --hidden-import numpy.random.common --hidden-import numpy.random.bounded_integers --hidden-import numpy.random.entropy tiaoyitiao.py
+script: sudo apt update && sudo apt upgrade && sudo apt install python3.6-tk && sudo pip install pillow matplotlib numpy pyinstaller && pyinstaller -F --hidden-import tkinter --hidden-import matplotlib.backends.backend_tkagg --hidden-import packaging.specifiers --hidden-import packaging.requirements --hidden-import numpy.random.common --hidden-import numpy.random.bounded_integers --hidden-import numpy.random.entropy tiaoyitiao.py
 after_script:
   - cd ./dist
   - git init
